@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Weather(){
+function CurrentWeather(){
 
     const[country, setCountry] = React.useState("");//res.sys.country
     const[temp, setTemp] = React.useState();//res.main.temp
@@ -15,6 +15,7 @@ function Weather(){
         .then((res)=>{
             const data = res.json();
             data.then((res)=>{
+                console.log(res)
                 setCountry(res.sys.country);
                 setTemp(res.main.temp);
                 setFeelTemp(res.main.feels_like);
@@ -22,8 +23,8 @@ function Weather(){
                 setDescription(res.weather[0].description);
             })
         })
-        .catch(()=>{
-            alert("連線失敗");
+        .catch((err)=>{
+            alert(err);
         })
     },[])
 
@@ -55,14 +56,14 @@ function Weather(){
         <div className="container">
             <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-12" style={{display:"flex", justifyContent:"center"}}>
-                    <input type="text" style={{height:"40%", width:"70%", marginTop:"50px"}} placeholder="請輸入城市或國家(英文的)" ref={inputRef}></input>
+                    <input type="text" style={{height:"40%", width:"70%", marginTop:"50px"}} placeholder="請輸入城市或國家(英文的)/目前的天氣狀況" ref={inputRef}></input>
                     <button style={{height:"40%", width:"20%", marginTop:"50px", marginLeft:"10px"}} onClick={()=>{handleClick(inputRef.current.value)}}>確認</button>
                 </div>
             </div>
             <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-12" style={{marginTop:"50px"}}>
-                    <h1 style={{textAlign:"center", margin:"0px"}}>國家:{country}</h1>
-                    <h1 style={{textAlign:"center", margin:"0px"}}>溫度:{temp}/體感溫度:{feelTemp}</h1>
+                    <h1 style={{textAlign:"center", margin:"0px"}}>國家: {country}</h1>
+                    <h1 style={{textAlign:"center", margin:"0px"}}>溫度: {temp}/體感溫度: {feelTemp}</h1>
                     <h1 style={{textAlign:"center", margin:"0px"}}>{description}</h1>
                     <div style={{textAlign:"center"}}>
                         <img src={imgUrl} style={{width:"50%"}}></img>
@@ -73,4 +74,4 @@ function Weather(){
     )
 }
 
-export default Weather;
+export default CurrentWeather;

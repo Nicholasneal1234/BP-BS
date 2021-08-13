@@ -11,12 +11,12 @@ export const HeadWrap = styled.div`
 export const HeadItem = styled.button`
     display:inline-block;
     margin:0;
-    width:150px;
+    width:100px;
     height:50px;
     background-color:#000;
     border:none;
     color:white;
-    font-size:25px;
+    font-size:20px;
     :hover{
         background-color:#aaa;
         cursor:pointer;

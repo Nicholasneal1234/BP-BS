@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styled from './style';
-import Weather from './weather';
+import CurrentWeather from './currentWeather';
+import FutureWeather from './futureWeather';
 
 function Home(){
 
@@ -16,10 +17,14 @@ function Home(){
                 </div>
                 <div className="row">
                     <div className="col-sm-12 col-md-5 col-lg-5">
-                        <Weather></Weather>
+                        <CurrentWeather></CurrentWeather>
                         <hr></hr>
                     </div>
-                    <div className="col-sm-12 col-md-2 col-lg-2">
+                    <div className="col-sm-12 col-md-5 col-lg-5">
+                        <FutureWeather></FutureWeather>
+                        <hr></hr>
+                    </div>
+                    <div className="col-sm-12 col-md-2 col-lg-2" style={{marginTop:"50px"}}>
                         <ul>
                             <li><a href="https://www.cdc.gov.tw/" style={{lineHeight:"50px", color:"black"}}>衛生福利部疾病管制署</a></li>
                             <li><a href="https://www.mohw.gov.tw/mp-1.html" style={{lineHeight:"50px", color:"black"}}>衛生福利部</a></li>

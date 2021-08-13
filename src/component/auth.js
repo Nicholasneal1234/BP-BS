@@ -10,8 +10,9 @@ function Auth(props){
 
     React.useEffect(()=>{
         au.onAuthStateChanged((user)=>{
-            user?localStorage.setItem("login",true):localStorage.setItem("login",false);
+            user?localStorage.setItem("login", true):localStorage.setItem("login",false);
             user?setLogin(true):setLogin(false);
+            user?localStorage.setItem("email", user.email):localStorage.setItem("email","");
             user?setUid(user.uid):console.log("user isn't login")
         })
     },[])

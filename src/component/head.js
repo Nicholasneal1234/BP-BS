@@ -10,6 +10,7 @@ function Head(){
 
     const [data, setData]=React.useState([]);
     let user=React.useContext(AuthState);
+    const email=localStorage.getItem("email");
 
     function handleSignout(){
         au.signOut();
@@ -33,7 +34,7 @@ function Head(){
     return(
         <React.Fragment>
             <styled.HeadWrap>
-                <Link to="/"><styled.HeadItem>首頁</styled.HeadItem></Link>
+                {user.login?<Link to="/"><styled.HeadItem style={{width:"240px"}}>歡迎 {email}</styled.HeadItem></Link>:<Link><styled.HeadItem>首頁</styled.HeadItem></Link>}
                 <Link to="/input"><styled.HeadItem>填寫血壓</styled.HeadItem></Link>
                 {user.login?<styled.HeadItem onClick={handleSignout}>登出</styled.HeadItem>:<Link to="/login"><styled.HeadItem>登入</styled.HeadItem></Link>}
             </styled.HeadWrap>
